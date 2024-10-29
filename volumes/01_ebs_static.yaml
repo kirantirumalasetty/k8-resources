@@ -8,7 +8,7 @@ spec:
   capacity:
     storage: 20Gi
   csi:
-    driver: ebs-csi.aws.com
+    driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-00319cb3e38c9686b
 ---
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-static
 spec:
-  storageClassName: ""
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   volumeName: ebs-static
   accessModes:
     - ReadWriteOnce
@@ -56,6 +56,6 @@ spec:
   ports:
   - name: nginx-svc-port
     protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 80 # service port
+    targetPort: 80 # container port
     nodePort: 30007
