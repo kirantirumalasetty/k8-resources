@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: ebs-static
 spec:
-  accessMode:
+  accessModes:
   - ReadWriteOnce
   capacity:
     storage: 20Gi
