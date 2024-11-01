@@ -20,7 +20,7 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    volumeMounts:
+    volumeMounts: # docker run -v hostpath:contaierpath
     - name: efs-dynamic
       mountPath: /usr/share/nginx/html
   volumes:
@@ -39,6 +39,6 @@ spec:
   ports:
   - name: nginx-svc-port
     protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 80 # service port
+    targetPort: 80 # container port
     nodePort: 30007
